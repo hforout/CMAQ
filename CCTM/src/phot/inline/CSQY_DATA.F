@@ -528,7 +528,7 @@ C...begin read
      &            ( CS_REF( IWL_LOAD, ITT_LOAD, IPHOT_LOAD ), IWL_LOAD = 1, NWL_REF )
 
 #ifdef verbose_phot
-            write( log_unit,'(a16,7x,f8.3,1x,40(1pe12.6,2x))' )
+            write( log_unit,'(a16,7x,f8.3,1x,40(1pe13.6,2x))' )
      &             phot_expect, temp_ref( itt_load, iphot_load),
      &             ( cs_ref( iwl_load, itt_load, iphot_load ), iwl_load = 1, nwl_ref )
 #endif
@@ -546,7 +546,7 @@ C...begin read
             QY_REF( 1:NWL_REF, ITT_LOAD, IPHOT_LOAD ) = EQY_REF( 1:NWL_REF, ITT_LOAD, IPHOT_LOAD )
 
 #ifdef verbose_phot
-            write( log_unit,'(a16,7x,f8.3,1x,40(1pe12.6,2x))' )
+            write( log_unit,'(a16,7x,f8.3,1x,40(1pe13.6,2x))' )
      &             phot_expect, temp_ref( itt_load, iphot_load),
      &             ( qy_ref( iwl_load, itt_load, iphot_load ), iwl_load = 1, nwl_ref )
 #endif
@@ -581,7 +581,7 @@ C...begin read
      &         ( O3_CS_STRAT_REF( IWL_LOAD, ITT_LOAD ), IWL_LOAD = 1, NWL_REF )
 
 #ifdef verbose_phot
-         write( log_unit,'(a16,7x,f8.3,1x,40(1pe12.6,2x))' )
+         write( log_unit,'(a16,7x,f8.3,1x,40(1pe13.6,2x))' )
      &          phot_expect, temp_strat_ref( itt_load ),
      &          ( o3_cs_strat_ref( iwl_load, itt_load ), iwl_load = 1, nwl_ref )
 #endif
@@ -649,7 +649,7 @@ C...begin read
 !***  is referenced in other sections of the code.  if so, then set
 !***  the appropriate pointers for later processing
 
-           SELECT CASE ( TRIM( PHOTOLYSIS_RATE( IPHOT ) ) )
+           SELECT CASE ( PHOTOLYSIS_RATE( IPHOT ) )
               CASE( 'O3O3P', 'O3O3P_SAPRC99', 'O3O3P_06', 'O3_O3P_IUPAC04', 'O3O3P_NASA06', 'O3_O3P_IUPAC10' )
                     LO3O3P = IPHOT
               CASE( 'NO2', 'NO2_SAPRC99', 'NO2_06', 'NO2_RACM2', 'NO2_IUPAC10' )
@@ -968,7 +968,7 @@ C...begin read
      &         OPTICS_EXPECT, RADIUS_LIQUID( ITT_LOAD ),
      &         ( LIQUID_EXTINCT( ITT_LOAD, IWL_LOAD), IWL_LOAD = 1, NWL_OPTICS )
 #endif
-            IF ( TRIM( OPTICS_EXPECT ) .NE. TRIM( QUANTITY ) ) THEN
+            IF ( OPTICS_EXPECT .NE. QUANTITY ) THEN
                MSG =  'Optical quantity read ' // TRIM( OPTICS_EXPECT )
      &             // ' does match expected quantity, ' // TRIM( QUANTITY )
                CALL M3WARN( PNAME, 0, 0, MSG )
@@ -993,7 +993,7 @@ C...begin read
      &         OPTICS_EXPECT, RADIUS_LIQUID( ITT_LOAD ),
      &         ( LIQUID_ASYMFACT( ITT_LOAD, IWL_LOAD), IWL_LOAD = 1, NWL_OPTICS )
 #endif
-            IF ( TRIM( OPTICS_EXPECT ) .NE. TRIM( QUANTITY ) ) THEN
+            IF ( OPTICS_EXPECT .NE. QUANTITY ) THEN
                MSG =  'Optical quantity read ' // TRIM( OPTICS_EXPECT )
      &             // ' does match expected quantity, ' // TRIM( QUANTITY )
                CALL M3WARN( PNAME, 0, 0, MSG )
@@ -1018,7 +1018,7 @@ C...begin read
      &         OPTICS_EXPECT, RADIUS_LIQUID( ITT_LOAD ),
      &         ( LIQUID_COALBEDO( ITT_LOAD, IWL_LOAD), IWL_LOAD = 1, NWL_OPTICS )
 #endif
-            IF ( TRIM( OPTICS_EXPECT ) .NE. TRIM( QUANTITY ) ) THEN
+            IF ( OPTICS_EXPECT .NE. QUANTITY ) THEN
                MSG =  'Optical quantity read ' // TRIM( OPTICS_EXPECT )
      &             // ' does match expected quantity, ' // TRIM( QUANTITY )
                CALL M3WARN( PNAME, 0, 0, MSG )
@@ -1066,7 +1066,7 @@ C...begin read
      &         OPTICS_EXPECT, DIAMETER_ICE( ITT_LOAD ),
      &         ( ICE_EXTINCT( ITT_LOAD, IWL_LOAD), IWL_LOAD = 1, NWL_OPTICS )
 #endif
-            IF ( TRIM( OPTICS_EXPECT ) .NE. TRIM( QUANTITY ) ) THEN
+            IF ( OPTICS_EXPECT .NE. QUANTITY ) THEN
                MSG =  'Optical quantity read ' // TRIM( OPTICS_EXPECT )
      &             // ' does match expected quantity, ' // TRIM( QUANTITY )
                CALL M3WARN( PNAME, 0, 0, MSG )
@@ -1091,7 +1091,7 @@ C...begin read
      &         OPTICS_EXPECT, DIAMETER_ICE( ITT_LOAD ),
      &         ( ICE_ASYMFACT( ITT_LOAD, IWL_LOAD), IWL_LOAD = 1, NWL_OPTICS )
 #endif
-            IF ( TRIM( OPTICS_EXPECT ) .NE. TRIM( QUANTITY ) ) THEN
+            IF ( OPTICS_EXPECT .NE. QUANTITY ) THEN
                MSG =  'Optical quantity read ' // TRIM( OPTICS_EXPECT )
      &             // ' does match expected quantity, ' // TRIM( QUANTITY )
                CALL M3WARN( PNAME, 0, 0, MSG )
@@ -1116,7 +1116,7 @@ C...begin read
      &         OPTICS_EXPECT, DIAMETER_ICE( ITT_LOAD ),
      &         ( ICE_COALBEDO( ITT_LOAD, IWL_LOAD), IWL_LOAD = 1, NWL_OPTICS )
 #endif
-            IF ( TRIM( OPTICS_EXPECT ) .NE. TRIM( QUANTITY ) ) THEN
+            IF ( OPTICS_EXPECT .NE. QUANTITY ) THEN
                MSG =  'Optical quantity read ' // TRIM( OPTICS_EXPECT )
      &             // ' does match expected quantity, ' // TRIM( QUANTITY )
                CALL M3WARN( PNAME, 0, 0, MSG )
@@ -1141,7 +1141,7 @@ C...begin read
      &         OPTICS_EXPECT, DIAMETER_ICE( ITT_LOAD ),
      &         ( ICE_DELTRANS( ITT_LOAD, IWL_LOAD), IWL_LOAD = 1, NWL_OPTICS )
 #endif
-            IF ( TRIM( OPTICS_EXPECT ) .NE. TRIM( QUANTITY ) ) THEN
+            IF ( OPTICS_EXPECT .NE. QUANTITY ) THEN
                MSG =  'Optical quantity read ' // TRIM( OPTICS_EXPECT )
      &             // ' does match expected quantity, ' // TRIM( QUANTITY )
                CALL M3WARN( PNAME, 0, 0, MSG )
@@ -1243,7 +1243,7 @@ C...begin read
      &        ( SPECTRAL_ALBEDO_REF(IWL_LOAD, ITT_LOAD), IWL_LOAD = 1, NWL_REF )
 
 #ifdef verbose_phot
-         write( log_unit,'(a30,1x,40(1pe12.6,2x))' ) trim( land_expect ),
+         write( log_unit,'(a30,1x,40(1pe13.6,2x))' ) trim( land_expect ),
      &        ( spectral_albedo_ref(iwl_load, itt_load), iwl_load = 1, nwl_ref )
 #endif
 
@@ -1397,7 +1397,7 @@ C...begin read
 99947 FORMAT(a3, 1x, a16)
 99948 FORMAT(10(a16,1x))
 99949 FORMAT(4x,3(f8.3,2x),2x,2(es12.4,2x),f8.3,2x,12(es12.4,2x))
-99950 FORMAT(a8,1x,f10.3,40(1x,1pe12.6))
+99950 FORMAT(a8,1x,f10.3,40(1x,1pe13.6))
 99951 FORMAT('Too Small Differences in Liquid Droplet Radii = ',1PE12.4,' um ')
 99952 FORMAT('Too Small Differences in Ice Particle Sizes   = ',1PE12.4,' um ')
 #ifdef verbose_phot
